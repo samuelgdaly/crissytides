@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Gate currents — 0.46 nm E of bridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header__text">
+        <h1 class="title">Golden Gate Bridge currents</h1>
+        <p class="subtitle">NOAA station SFB1203 — Golden Gate Bridge, 0.46 nm E · 30 ft depth (bin 18)</p>
+        <p class="header__map">
+          <a href="https://www.google.com/maps?q=37.82007,-122.473" target="_blank" rel="noopener noreferrer">37.82007°N, 122.473°W</a><span class="header__map-hint"> — open in Google Maps</span>
+        </p>
+      </div>
+      <p class="header__meta" id="updatedLine" aria-live="polite"></p>
+      <div class="banner banner--error" id="errorBanner" role="alert" hidden></div>
+    </header>
+
+    <main>
+      <section class="panel panel--today" aria-labelledby="today-heading">
+        <h2 id="today-heading" class="panel__title panel__title--today">Today</h2>
+        <p class="today-date-line" id="todayDateLine"></p>
+        <p class="today-now" id="todayNowStrip"></p>
+        <div class="event-list" id="todayEventList" role="list"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="calendar-heading">
+        <h2 id="calendar-heading" class="panel__title">History &amp; Forecast</h2>
+        <p class="panel__hint">Current speed predictions at the top of each hour in knots</p>
+        <div class="calendar-legend calendar-legend--hourly" aria-hidden="true">
+          <span class="calendar-legend__item calendar-legend__item--flood">Flood (red)</span>
+          <span class="calendar-legend__item calendar-legend__item--ebb">Ebb (green)</span>
+          <span class="calendar-legend__item calendar-legend__item--wind">Wind window (2 PM–7 PM PT)</span>
+        </div>
+        <div class="calendar-table-host" id="calendarGrid" role="region" aria-label="History and forecast: hourly current predictions by day"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Station
+        <a href="https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/SFB1203.json" rel="noopener noreferrer">SFB1203</a>
+        · Data from
+        <a href="https://tidesandcurrents.noaa.gov/" rel="noopener noreferrer">NOAA CO-OPS</a>
+        (predictions, not observations). For navigation, verify with official sources.
+      </p>
+    </footer>
+  </div>
+
+  <div class="toast" id="errorToast" role="status" hidden></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
